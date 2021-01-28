@@ -1,7 +1,16 @@
 @import "~bootstrap/scss/bootstrap.scss";
 
-.square {
-     width: 30rem; 
-     height: 30rem; 
-     background: grey;
+.row {
+    height: 5rem; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+.square {
+     width: 5rem; 
+     height: 5rem ; 
+     background: grey;
+     align-content: center;
+}
+
