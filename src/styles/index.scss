@@ -1,16 +1,18 @@
 @import "~bootstrap/scss/bootstrap.scss";
 
-.row {
-    height: 5rem; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.button {
+    background: grey;
+    border: 2px;
+    border-style: dashed;
+    border-color: #333333;
+    font-size: 5rem;
+    color: whitesmoke;
 }
 
-.square {
-     width: 5rem; 
-     height: 5rem ; 
-     background: grey;
-     align-content: center;
+.board {
+    height: 100rem;
+    width: 100rem;
+    margin: 0 auto;
+    display: grid;
+    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
 }
-

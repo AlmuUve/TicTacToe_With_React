@@ -1,20 +1,12 @@
 import React, { useState } from "react";
+import Square from "./square.jsx";
 import PropTypes from "prop-types";
-import Button from "react-bootstrap/Button";
+import "../../styles/index.scss";
 
-export const Board = () => {
-	return (
-		<div>
-			<div className="Introduction">
-				<h1>TicTacToe with React!</h1>
-				<span>Is your turn</span>
-				<Button variant="light">Reset</Button>
-			</div>
-			<div className="Square" />
-		</div>
-	);
+export const Board = ({ squares, onClick }) => {
+	<div className="board">
+		{squares.map((square, i) => (
+			<Square key={i} value={square} onClick={() => onClick("value")} />
+		))}
+	</div>;
 };
-
-// Board.propTypes = {
-// 	name: PropTypes.bool
-// };

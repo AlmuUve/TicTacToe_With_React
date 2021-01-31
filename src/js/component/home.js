@@ -1,53 +1,37 @@
 import React, { Fragment, useEffect, useState } from "react";
-import Button from "react-bootstrap/Button";
-import { MyModal } from "./mymodal.jsx";
-import { Square } from "./square.jsx";
-import "../../styles/index.scss";
+import Board from "./board.jsx";
+import { calculateWinner } from "../helpers.js";
 
 export function Home() {
-	const [player, setPlayer] = useState(true);
-	const [symbol, setSymbol] = useState("x");
+	const [board, setBoard] = useState(Array(9).fill(null));
+	const [xIsNext, setXisNext] = useState(true);
+	const winner = calculateWinner(board);
 
-	useEffect(
-		() => {
-			player ? setSymbol("x") : setSymbol("O");
-		},
-		[player]
-	);
-
-	const handleClick = () => {
-		setPlayer(false);
+	const handleClick = i => {
+		const boardCopy = [...board];
+		if (winner || boardCopy[i]) return;
+		boardCopy[i] = xIsNext ? "X" : "O";
+		setBoard(boardCopy);
+		setXisNext(!xIsNext);
 	};
 
-	let drawSquare = new Array(9).fill(null).map((value, i) => {
-		return (
-			<Square onMyClick={() => handleClick()} symbol={symbol} key={i}>
-				{value}
-			</Square>
-		);
-	});
+	const renderMoves = () => (
+		<button onClick={() => setBoard(Array(9).fill(null))}>
+			Let's start!
+		</button>
+	);
+
 	return (
 		<Fragment>
-			<div className="row">
-				<div className="square">{drawSquare[0]}</div>
-				<div className="square">{drawSquare[1]}</div>
-				<div className="square">{drawSquare[2]}</div>
+			<Board squares={board} onClick={handleClick} />
+			<div>
+				<span>
+					{winner
+						? "Winner is" + winner
+						: "Next is" + (xIsNext ? "X" : "O")}
+				</span>
+				{renderMoves()}
 			</div>
-			<div className="row">
-				<div className="square">{drawSquare[3]}</div>
-				<div className="square">{drawSquare[4]}</div>
-				<div className="square">{drawSquare[5]}</div>
-			</div>
-			<div className="row">
-				<div className="square">{drawSquare[3]}</div>
-				<div className="square">{drawSquare[4]}</div>
-				<div className="square">{drawSquare[5]}</div>
-			</div>
-
-			{/* <MyModal>
-				<Button />
-				<Button />
-			</MyModal> */}
 		</Fragment>
 	);
 }
