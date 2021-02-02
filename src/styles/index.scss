@@ -1,18 +1,59 @@
 @import "~bootstrap/scss/bootstrap.scss";
+@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500&display=swap");
 
-.button {
-    background: grey;
-    border: 2px;
-    border-style: dashed;
-    border-color: #333333;
-    font-size: 5rem;
-    color: whitesmoke;
+.game{
+    font-family: 'Roboto', sans-serif;
 }
 
-.board {
-    height: 100rem;
-    width: 100rem;
+.boardGame {
+    height: 30rem;
+    width: 30rem;
     margin: 0 auto;
     display: grid;
     grid-template: repeat(3, 1fr) / repeat(3, 1fr);
 }
+
+.squareButton {
+    font-family: 'Architects Daughter', cursive;
+    border: 2px solid #333333;
+    font-size: 5rem;
+    color: #333333;
+}
+
+.squareButton:focus{
+    outline: none;
+}
+
+.next{
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.winner{
+    font-weight: 500;
+}
+
+.nextIs{
+    align-self: center;
+}
+
+.buttonContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.resetButton{
+    color: whitesmoke;
+    background-color: #333333;
+    padding: 0.5rem;
+    border-radius: 7px;
+    margin-top: 1rem;
+}
+.resetButton:focus{
+    outline: none;
+}
+
+
+

@@ -1,8 +1,17 @@
-import React, { useState } from "react";
-import "../../styles/index.scss";
+import React from "react";
+import PropTypes from "prop-types";
 
-export const Square = (value, onClick) => (
-	<button className="button" onClick={onClick}>
-		{value}
-	</button>
-);
+const Square = ({ value, onClick }) => {
+	return (
+		<button className="squareButton" onClick={onClick}>
+			{value}
+		</button>
+	);
+};
+
+Square.propTypes = {
+	onClick: PropTypes.string,
+	value: PropTypes.any
+};
+
+export default Square;
