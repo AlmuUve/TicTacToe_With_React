@@ -10,7 +10,6 @@ const Game = () => {
 	const handleClick = i => {
 		const myBoard = [...board];
 		if (winner || myBoard[i]) return;
-		//draw X or O
 		myBoard[i] = xIsNext ? "X" : "O";
 		setBoard(myBoard);
 		setXisNext(!xIsNext);
